@@ -1,0 +1,29 @@
+---
+# defaults/main.yml for certbot
+#
+# You can set the state to ["present"|"absent"|"latest"]
+wtd_certbot_state: "present"
+wtd_certbot_packages: ["certbot"]
+
+# Here you can define, if/how a certificate is created
+wtd_certbot_create: True
+wtd_certbot_create_method: "standalone"
+wtd_certbot_create_domains: ["{{ inventory_hostname }}"]
+# You have to provide a valid mail address
+wtd_certbot_create_contact: ""
+
+# Currently only tls-sni and http are supported.
+# You have to assure that the firewall port is openend.
+wtd_certbot_create_challenges: "http"
+
+# Standalone Method needs a port to create a cert.
+# Therefore all other daemons, which may use this
+# port must be stopped during creation.
+wtd_certbot_create_stop_daemons: []
+
+# Here you have to define, if/how the renewal will happen
+# According to letsencrypt, 2 times a day is a good idea.
+wtd_certbot_renew: True
+wtd_certbot_renew_method: "cron"
+wtd_certbot_renew_hour: "0,12"
+wtd_certbot_renew_minute: 0

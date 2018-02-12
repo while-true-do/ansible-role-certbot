@@ -1,0 +1,36 @@
+---
+# tasks/create-standalone.yml
+#
+- name: Check if certs already exist
+  stat:
+    path: "/etc/letsencrypt/live/{{ wtd_certbot_create_domain }}/cert.pem"
+  register: wtd_certbot_create_domain_check
+
+- name: Stop Services to allow cert creation
+  service:
+    name: "{{ item }}"
+    state: stopped
+  with_items: "{{ wtd_certbot_create_stop_daemons }}"
+  when:
+    - not wtd_certbot_create_domain_check.stat.exists
+    - wtd_certbot_create_stop_daemons
+  tags:
+    - certbot
+
+- name: Create Cert for "{{ wtd_certbot_create_domain }}"
+  command: certbot certonly --standalone --noninteractive --preferred-challenges "{{ wtd_certbot_create_challenges }}" --agree-tos --email "{{ wtd_certbot_create_contact }}" -d "{{ wtd_certbot_create_domain }}"
+  when:
+    - not wtd_certbot_create_domain_check.stat.exists
+  tags:
+    - certbot
+
+- name: Start Services after cert creation
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items: "{{ wtd_certbot_create_stop_daemons }}"
+  when:
+    - wtd_certbot_create_stop_daemons
+    - not wtd_certbot_create_domain_check.stat.exists
+  tags:
+    - certbot

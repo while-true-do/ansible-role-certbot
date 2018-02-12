@@ -1,0 +1,31 @@
+---
+# tasks/main.yml for certbot
+#
+- name: Set certbot to "{{ wtd_certbot_state }}"
+  package:
+    name: "{{ item }}"
+    state: "{{ wtd_certbot_state }}"
+  with_items: "{{ wtd_certbot_packages }}"
+  tags:
+    - certbot
+
+- name: Include "{{ wtd_certbot_create_method }}" Creation Tasks
+  include_tasks: "create-{{ wtd_certbot_create_method }}.yml"
+  with_items: "{{ wtd_certbot_create_domains }}"
+  loop_control:
+    loop_var: wtd_certbot_create_domain
+  when:
+    - wtd_certbot_create
+    - wtd_certbot_create_method
+    - wtd_certbot_create_domains
+  tags:
+    - certbot
+
+- name: Include "{{ wtd_certbot_renew_method }}" Renew Tasks
+  include_tasks: "renew-{{ wtd_certbot_renew_method }}.yml"
+  when:
+    - wtd_certbot_renew
+    - wtd_certbot_renew_method
+  tags:
+    - certbot
+    - cron

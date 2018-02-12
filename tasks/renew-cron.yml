@@ -1,0 +1,10 @@
+---
+- name: Add Certbot Renew to Crontab
+  cron:
+    name: Certbot Renew
+    job: "certbot renew --quiet"
+    hour: "{{ wtd_certbot_renew_hour }}"
+    minute: "{{ wtd_certbot_renew_minute }}"
+  tags:
+    - certbot
+    - cron
