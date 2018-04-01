@@ -3,9 +3,8 @@
 #
 - name: Set certbot to "{{ wtd_certbot_state }}"
   package:
-    name: "{{ item }}"
+    name: "{{ wtd_certbot_packages }}"
     state: "{{ wtd_certbot_state }}"
-  with_items: "{{ wtd_certbot_packages }}"
   tags:
     - certbot
 
