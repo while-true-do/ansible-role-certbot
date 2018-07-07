@@ -23,16 +23,16 @@ Due to some major issues, currently `create_challenge = tls-sni` is not supporte
 
 ## Installation
 
-Install from [Ansible Galaxy](https://galaxy.ansible.com/while-true-do/certbot)
+Install from [Ansible Galaxy](https://galaxy.ansible.com/while_true_do/certbot)
 
 ```
-ansible-galaxy install while-true-do.certbot
+ansible-galaxy install while_true_do.certbot
 ```
 
 Install from [Github](https://github.com/while-true-do/ansible-role-certbot)
 
 ```
-git clone https://github.com/while-true-do/ansible-role-certbot.git while-true-do.certbot
+git clone https://github.com/while-true-do/ansible-role-certbot.git while_true_do.certbot
 ```
 
 ## Requirements
@@ -48,7 +48,7 @@ Used Modules:
 
 ## Dependencies
 
-[while-true-do.repo-epel](https://galaxy.ansible.com/while-true-do/repo-epel/) is needed to get the certbot packages and dependencies.
+[while-true-do.repo-epel](https://galaxy.ansible.com/while_true_do/repo-epel/) is needed to get the certbot packages and dependencies.
 
 ```
 ansible-galaxy install -r requirements.yml
@@ -115,7 +115,7 @@ Simple Example:
 ```yaml
 - hosts: servers 
   roles:
-    - { role: while-true-do.certbot, wtd_certbot_create_contact: me@cool.org }
+    - { role: while_true_do.certbot, wtd_certbot_create_contact: me@cool.org }
 ```
 
 ## Testing

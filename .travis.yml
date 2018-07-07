@@ -24,7 +24,7 @@ install:
   - ansible --version
 
   # Link github repo to ansible-galaxy name
-  - ln -s  $PWD ../while-true-do.certbot
+  - ln -s  $PWD ../while_true_do.certbot
 
 # Run the tests
 script:

@@ -1,5 +1,5 @@
 dependencies:
-  - role: while-true-do.repo-epel
+  - role: while_true_do.repo-epel
 
 galaxy_info:
   author: while-true-do.org
