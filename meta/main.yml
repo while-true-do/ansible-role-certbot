@@ -1,5 +1,5 @@
 dependencies:
-  - role: while_true_do.repo-epel
+  - role: while_true_do.repo_epel
 
 galaxy_info:
   role_name: certbot

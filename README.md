@@ -48,7 +48,7 @@ Used Modules:
 
 ## Dependencies
 
-[while-true-do.repo-epel](https://galaxy.ansible.com/while_true_do/repo-epel/) is needed to get the certbot packages and dependencies.
+[while_true_do.repo_epel](https://galaxy.ansible.com/while_true_do/repo_epel/) is needed to get the certbot packages and dependencies.
 
 ```
 ansible-galaxy install -r requirements.yml
