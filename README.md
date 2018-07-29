@@ -39,12 +39,12 @@ git clone https://github.com/while-true-do/ansible-role-certbot.git while_true_d
 
 Used Modules:
 
--  [package_module](http://docs.ansible.com/ansible/latest/package_module.html)
--  [include_tasks_module](https://docs.ansible.com/ansible/2.4/include_tasks_module.html)
--  [stat_module](http://docs.ansible.com/ansible/latest/stat_module.html)
--  [service_module](http://docs.ansible.com/ansible/latest/service_module.html)
--  [cron_module](http://docs.ansible.com/ansible/latest/cron_module.html)
--  [command_module](http://docs.ansible.com/ansible/latest/command_module.html)
+-  [command_module](https://docs.ansible.com/ansible/latest/modules/command_module.html)
+-  [cron_module](https://docs.ansible.com/ansible/latest/modules/cron_module.html)
+-  [include_tasks_module](https://docs.ansible.com/ansible/latest/modules/include_tasks_module.html)
+-  [package_module](https://docs.ansible.com/ansible/latest/modules/package_module.html)
+-  [service_module](https://docs.ansible.com/ansible/latest/modules/service_module.html)
+-  [stat_module](https://docs.ansible.com/ansible/latest/modules/stat_module.html)
 
 ## Dependencies
 
@@ -113,7 +113,7 @@ wtd_certbot_renew_minute: 0
 Simple Example:
 
 ```yaml
-- hosts: servers 
+- hosts: servers
   roles:
     - { role: while_true_do.certbot, wtd_certbot_create_contact: me@cool.org }
 ```
@@ -125,14 +125,15 @@ All tests are located in [test directory](./tests/).
 Basic testing:
 
 ```
-bash ./tests/test-spelling.sh
 bash ./tests/test-ansible.sh
+bash ./tests/test-spelling.sh
+bash ./tests/test-whitespace.sh
 ```
 
 ## Contribute / Bugs
 
 Thank you so much for considering to contribute. Every contribution helps us.
-We are really happy, when somebody is joining the hard work. Please have a look 
+We are really happy, when somebody is joining the hard work. Please have a look
 at the links first.
 
 -   [Contribution Guidelines](./docs/CONTRIBUTING.md)
