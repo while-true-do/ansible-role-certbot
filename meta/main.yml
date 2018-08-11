@@ -1,7 +1,8 @@
 dependencies:
-  - role: while-true-do.repo-epel
+  - role: while_true_do.repo_epel
 
 galaxy_info:
+  role_name: certbot
   author: while-true-do.org
   description: A role to install certbot and create SSL certificates via letsencrypt.org
   company: while-true-do.org

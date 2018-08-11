@@ -1,6 +1,6 @@
 ---
 language: python
-python: 
+python:
   - "2.7"
   - "3.6"
 
@@ -24,7 +24,7 @@ install:
   - ansible --version
 
   # Link github repo to ansible-galaxy name
-  - ln -s  $PWD ../while-true-do.certbot
+  - ln -s  $PWD ../while_true_do.certbot
 
 # Run the tests
 script:
@@ -32,6 +32,8 @@ script:
   - tests/test-ansible.sh
   - chmod +x tests/test-spelling.sh
   - tests/test-spelling.sh
+  - chmod +x tests/test-whitespace.sh
+  - tests/test-whitespace.sh
 
 notifications:
   webhooks:
