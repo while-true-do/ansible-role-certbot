@@ -14,17 +14,17 @@
   loop_control:
     loop_var: wtd_certbot_create_domain
   when:
-    - wtd_certbot_create
-    - wtd_certbot_create_method
-    - wtd_certbot_create_domains
+    - wtd_certbot_create is defined
+    - wtd_certbot_create_method is defined
+    - wtd_certbot_create_domains is defined
   tags:
     - certbot
 
 - name: Include "{{ wtd_certbot_renew_method }}" Renew Tasks
   include_tasks: "renew-{{ wtd_certbot_renew_method }}.yml"
   when:
-    - wtd_certbot_renew
-    - wtd_certbot_renew_method
+    - wtd_certbot_renew is defined
+    - wtd_certbot_renew_method is defined
   tags:
     - certbot
     - cron
