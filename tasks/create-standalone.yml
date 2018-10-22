@@ -13,7 +13,7 @@
   with_items: "{{ wtd_certbot_create_stop_daemons }}"
   when:
     - not wtd_certbot_create_domain_check.stat.exists
-    - wtd_certbot_create_stop_daemons
+    - wtd_certbot_create_stop_daemons is defined
   tags:
     - certbot
 
@@ -30,7 +30,7 @@
     state: started
   with_items: "{{ wtd_certbot_create_stop_daemons }}"
   when:
-    - wtd_certbot_create_stop_daemons
+    - wtd_certbot_create_stop_daemons is defined
     - not wtd_certbot_create_domain_check.stat.exists
   tags:
     - certbot
